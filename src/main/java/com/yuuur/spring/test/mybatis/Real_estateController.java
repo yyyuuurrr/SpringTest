@@ -36,11 +36,37 @@ public class Real_estateController {
 		
 	}
 	
+	@RequestMapping("/3")
+	@ResponseBody
+	public List<Real_estate> selectRealComplex(@RequestParam("area")int area, @RequestParam("price")int price) {
+		List<Real_estate> realList = real_estateService.getReal3(area, price);
+		
+		return realList;
+	}
 	
 	
+	// insert 하기
+	@RequestMapping("/4")
+	@ResponseBody
+	public String createReal(@RequestParam("realtorId")int realtorId) {
+		
+		//int count = real_estateService.addReal(3, "푸르지용 리버 303동 1104호", 89, "매매", 100000);
+		
+		
+		int count = real_estateService.addReal2(realtorId, "썅떼빌리버 오피스텔 814호", 45, "월세", 100000);
+		
+		return "입력성공 : " + count;
+	}
 	
-	
-	
-	
+	// update 하기
+	@ResponseBody
+	@RequestMapping("/update")
+	public String updateReal(String type, int price) {
+		
+		int count = real_estateService.updateReal("전세", 70000);
+		
+		return "수정 성공 : " + count;
+	}
+
 
 }
