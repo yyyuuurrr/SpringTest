@@ -36,8 +36,10 @@ public interface Real_estateRepository {
 	
 	
 	// update 
-	public int updateReal(@Param("type")String type, @Param("price")int price);
+	public int updateReal(@Param("id")int id, @Param("type")String type, @Param("price")int price);
 	
 	
+	//delete	
+	public int deleteReal(@Param("id")int id);
 	
 }

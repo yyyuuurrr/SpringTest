@@ -57,11 +57,20 @@ public class Real_estateService {
 	}
 	
 	//  update 
-	
-	public int updateReal(String type, int price) {
-		int count = real_estateRepository.updateReal(type, price);
+	//  전달받은 id와 일치하는 매물 ㅜ정보를 전달받은 type과 price를 수정한다.
+	public int updateReal(int id, String type, int price) {
+		int count = real_estateRepository.updateReal(id, type, price);
 		
 		return count;
+	}
+	
+	// delete
+	
+	public int deleteReal(int id) {
+		int count = real_estateRepository.deleteReal(id);
+		
+		return count;
+		
 	}
 	
 }

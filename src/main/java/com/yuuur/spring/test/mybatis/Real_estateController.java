@@ -61,12 +61,22 @@ public class Real_estateController {
 	// update 하기
 	@ResponseBody
 	@RequestMapping("/update")
-	public String updateReal(String type, int price) {
+	public String updateReal() {
 		
-		int count = real_estateService.updateReal("전세", 70000);
+		int count = real_estateService.updateReal(19 , "전세", 70000);
 		
 		return "수정 성공 : " + count;
 	}
 
-
+	
+	// delete 하기
+	@ResponseBody
+	@RequestMapping("/delete")
+	public String deleteReal(@RequestParam("id")int id) {
+		
+		int count = real_estateService.deleteReal(id);
+		
+		return "삭제 성공 : " + count;
+	}
+	
 }
