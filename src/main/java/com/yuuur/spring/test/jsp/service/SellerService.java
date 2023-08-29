@@ -3,6 +3,7 @@ package com.yuuur.spring.test.jsp.service;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.yuuur.spring.test.jsp.domain.Seller;
 import com.yuuur.spring.test.jsp.repository.SellerRepository;
 
 @Service
@@ -19,10 +20,18 @@ public class SellerService {
 		return count;
 	}
 	
-	public int getLastSeller() {
+	public Seller getLastSeller() {
 		
+		Seller seller = sellerRepository.selectSellerLast();
 		
+		return seller;		
+	}
+	
+	public Seller getSeller(int id) {
 		
+		Seller seller = sellerRepository.selectSeller(id);
+		
+		return seller;
 	}
 	
 }

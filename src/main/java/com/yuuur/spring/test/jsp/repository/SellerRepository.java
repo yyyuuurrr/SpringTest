@@ -3,6 +3,8 @@ package com.yuuur.spring.test.jsp.repository;
 import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Repository;
 
+import com.yuuur.spring.test.jsp.domain.Seller;
+
 @Repository
 public interface SellerRepository {
 	
@@ -11,6 +13,8 @@ public interface SellerRepository {
 			, @Param("profileImage")String profileImage
 			, @Param("temperature")double temperature);
 	
-	public int selectSellerLast();
+	public Seller selectSellerLast();
 
+	// 한행은 seller
+	public Seller selectSeller(@Param("id")int id);
 }
