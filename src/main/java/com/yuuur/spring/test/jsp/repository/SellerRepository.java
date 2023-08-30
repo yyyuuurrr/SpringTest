@@ -9,12 +9,13 @@ import com.yuuur.spring.test.jsp.domain.Seller;
 public interface SellerRepository {
 	
 	public int insertSeller(
-			@Param("nickname")String nickname
-			, @Param("profileImage")String profileImage
-			, @Param("temperature")double temperature);
+			@Param("nickname") String nickname
+			, @Param("profileImage") String profileImage
+			, @Param("temperature") double temperature);
 	
-	public Seller selectSellerLast();
+	
+	public Seller selectLastSeller();
+	
+	public Seller selectSeller(@Param("id") int id);
 
-	// 한행은 seller
-	public Seller selectSeller(@Param("id")int id);
 }

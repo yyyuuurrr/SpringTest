@@ -4,30 +4,41 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>공인중개사 추가</title>
+<title>Insert title here</title>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 </head>
 <body>
 
-	<h2>공인중개사 추가</h2>
+	<h2>공인중개사 정보</h2>
+	
+	<div class="container">
+		<table class="table">
+			<tr>
+				<td>ID</td>
+				<td>${realtor.id }</td>
+			</tr>
+			<tr>
+				<td>상호명</td>
+				<td>${realtor.office }</td>
+			</tr>
+			<tr>
+				<td>전화번호</td>
+				<td>${realtor.phoneNumber}</td>
+			</tr>
+			<tr>
+				<td>주소</td>
+				<td>${realtor.address }</td>
+			</tr>
+			<tr>
+				<td>등급</td>
+				<td>${realtor.grade }</td>
+			</tr>
+		</table>
+	
+	</div>
 
-	<form method="post" action="/jsp/realtor/create">
-		<div class="container">
-			<label>상호명</label> <br>
-			<input type="text" name="office"> <br>
-			
-			<label>전화번호</label> <br>
-			<input type="text" name="phoneNumber"> <br>
-			
-			<label>주소</label> <br>
-			<input type="text" name="address"> <br>
-			
-			<label>등급</label> <br>
-			<input type="text" name="grade"> <br>
-			
-			<button type="submit" class="btn btn-primary">추가</button>		
-		</div>	
-	</form>
+
+
 
 
 

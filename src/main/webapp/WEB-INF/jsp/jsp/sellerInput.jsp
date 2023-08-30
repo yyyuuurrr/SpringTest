@@ -9,18 +9,19 @@
 </head>
 <body>
 
-	<h2>판매자 추가</h2>
-	<form method="post" action="/jsp/seller/create">
-		
-		<label>닉네임</label> 
-		<input type="text" name="nickname"> <br>
-		<label>프로필 사진 url</label>  
-		<input type="text" name="profileImage"> <br>
-		<label>온도</label> 
-		<input type="text" name="temperature"> <br>
-		
-		<button type="submit">추가</button>	
-	</form>
+	<div class="container">
+	
+		<h1>판매자 등록</h1>
+		<form method="post" action="/jsp/seller/create">
+			<label>닉네임</label>
+			<input type="text" class="form-control col-3" name="nickname">
+			<label>프로필 사진 url</label>
+			<input type="text" class="form-control col-6" name="profileImage">
+			<label>온도</label>
+			<input type="text" class="form-control col-3" name="temperature">
+			<button type="submit" class="btn btn-primary">추가</button>
+		</form>
+	</div>
 	
 	
 	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>

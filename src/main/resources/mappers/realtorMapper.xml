@@ -5,7 +5,47 @@
   
 <mapper namespace="com.yuuur.spring.test.jsp.repository.RealtorRepository">
 
-	<insert id="insertRealtor" parameterType="map">
+	<insert id="insertRealtor" parameterType="com.yuuur.spring.test.jsp.domain.Realtor">
+		INSERT INTO
+			`realtor`
+		(
+			`office`
+			, `phoneNumber`
+			, `address`
+			, `grade`	
+		)
+		VALUE
+		(
+			#{office}		
+			, #{phoneNumber}
+			, #{address}
+			, #{grade}
+		)
+	
+	</insert>
+	
+	<select id="selectLastRealtor" resultType="com.yuuur.spring.test.jsp.domain.Realtor">
+		SELECT
+			`id`
+			, `office`
+			, `phoneNumber`
+			, `address`
+			, `grade`
+			, `createdAt`
+			, `updatedAt`
+		FROM
+			`realtor`
+		ORDER BY 
+			`id` DESC
+		LIMIT 
+			1	
+	
+	</select>
+
+	
+	<insert id="insertRealtorByObject" 
+		parameterType="com.yuuur.spring.test.jsp.domain.Realtor"
+		useGeneratedKeys="true" keyProperty="id">
 		INSERT INTO
 			`realtor`
 		(
