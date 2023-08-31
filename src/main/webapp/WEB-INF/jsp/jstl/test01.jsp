@@ -20,10 +20,10 @@
 	<h2>2. JSTL core 연산</h2> 
 
 
-	<h4>더하기 : ${number1 + number2 }</h4>
-	<h4>빼기 : ${number1 - number2 }</h4>
-	<h4>곱하기 : ${number1 * number2 }</h4>
-	<h4>나누기 : ${number1 / number2 }</h4>
+	<h4>더하기 : ${number1 + number2 } </h4>
+	<h4>빼기 : ${number1 - number2 } </h4>
+	<h4>곱하기 : ${number1 * number2 } </h4>
+	<h4>나누기 : ${number1 / number2 } </h4>
 
 	<h2>3. JSTL core out</h2>
 	
