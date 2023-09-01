@@ -6,33 +6,62 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>후보자 득표율</title>
+<title>JSTL 연습문제 3</title>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 </head>
 <body>
 	
-	<div class="container text-center">
-	<h2>후보자 득표율</h2>
-		<table class="table">	
-			<tr>
-				<th>기호</th>
-				<th>득표 수</th>
-				<th>득표 율</th>
-			</tr>
-			<c:forEach var="candidate" items="${candidates }" varStatus="status" >
-			<tr>
-				<td>${status.count }</td>
-				<td><fmt:formatNumber value="${candidate }"/> </td>
-				<td><fmt:formatNumber value="${candidate / 1000000 }" type="percent" /></td>
-			</tr>
-			</c:forEach>
+	<div class="container">
+		<h2>1. 후보자 득표율</h2>
+		
+		<table class="table text-center">
+			<thead>
+				<tr>
+					<th>기호</th>
+					<th>득표 수</th>
+					<th>득표 율</th>
+					
+				</tr>
+				
+			</thead>
+			<tbody>
+				<c:forEach var="candidate" items="${candidateList }" varStatus="status" >
+				<tr>
+					<td>${status.count }</td>
+					<td><fmt:formatNumber value="${candidate }" /></td>
+					<td><fmt:formatNumber value="${candidate / 1000000 }" type="percent" /> </td>
+				</tr>
+				</c:forEach>
+			</tbody>
+		
 		</table>
-	
-	
+		
+		
+		<h2>2. 카드 명세서</h2>
+		<table class="table text-center">
+			<thead>
+				<tr>
+					<th>사용처</th>
+					<th>가격</th>
+					<th>사용날짜</th>
+					<th>할부</th>
+					
+				</tr>
+			</thead>
+			<tbody>
+			<c:forEach var="cardBills" items="${cardBillList }" >
+				<tr>
+					<td>${cardBills.store }</td>
+					<td><fmt:formatNumber value="${cardBills.pay }" type="currency" /></td>
+					<fmt:parseDate value="${cardBills.date }" pattern="yyyy-MM-dd" var ="date"/>
+					<td><fmt:formatDate value="${date }" pattern="yyyy년 M월 d일" /></td>
+					<td>${cardBills.installment }</td>
+				</tr>
+			</c:forEach>	
+			</tbody>
+		
+		</table>
 	</div>
-
-	
-	
 
 
 
