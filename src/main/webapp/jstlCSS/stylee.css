@@ -15,6 +15,17 @@
 	
 	height:600px;
 }
+.contents > .contents1 {
+	width:300px;
+}
+
+.contents > .contents2 {
+	width:300px;
+}
+
+.contents > .contents3 {
+	width:300px;
+}
 
 footer {
 	height:800px;
