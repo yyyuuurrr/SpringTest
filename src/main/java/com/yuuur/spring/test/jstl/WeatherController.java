@@ -12,7 +12,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.yuuur.spring.test.jstl.domain.Weatherhistory;
 import com.yuuur.spring.test.jstl.service.WeatherhistoryService;
@@ -48,17 +47,22 @@ public class WeatherController {
 	
 	
 	@PostMapping("/insert")
-	public String insertWeather(@RequestParam("date") @DateTimeFormat(pattern = "yyyy-MM-dd") Date date
+	public String insertWeather(
+			@RequestParam("date") @DateTimeFormat(pattern = "yyyy-MM-dd") Date date
 			, @RequestParam("weather") String weather
 			, @RequestParam("microDust") String microDust
 			, @RequestParam("temperatures")double temperatures
 			, @RequestParam("precipitation")double precipitation
 			, @RequestParam("windSpeed")double windSpeed) {
 		
-		int count = weatherhistoryService.addWeather(date, weather, microDust, temperatures, precipitation, windSpeed );
+		int count = weatherhistoryService.addWeather(date, weather, microDust, temperatures, precipitation, windSpeed);
+		
+		
 		
 		return "redirect:/jstl/weatherhistory/main";
 	}
+	
+	
 	
 	
 }
