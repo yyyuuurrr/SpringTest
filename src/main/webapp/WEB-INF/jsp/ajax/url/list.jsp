@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -17,19 +18,40 @@
 				<th>이름</th>
 				<th>주소</th>
 			</tr>
+			<c:forEach var="url" items="${urlList }">
 			<tr>
-				<td>1.</td>
-				<td>마론달</td>
-				<td>www.</td>
+				<td>${url.id }</td>
+				<td>${url.name }</td>
+				<td>${url.url }</td>
+				<td><button type="button" id="deleteBtn">삭제</button></td>
 			</tr>
-			<tr>
-				<td>2.</td>
-				<td>네이버</td>
-				<td>http.</td>
-			</tr>
+			</c:forEach>
+			
 		</table>
 	</div>
 	
+		<script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+		<script>
+			$(document).ready(function() {
+				
+				$("#deleteBtn").on("click", function() {
+					
+					
+				})
+				
+			});
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		</script>
 
 
 

@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+<mapper namespace="com.yuuur.spring.test.ajax.repository.UrlRepository">
+
+	<select id="selectUrl" resultType="com.yuuur.spring.test.ajax.domain.Url">
+		SELECT
+			`id`
+			, `name`
+			, `url`
+			, `createdAt`
+			, `updatedAt`
+		FROM
+			`url_list`
+			
+	</select>
+	
+	<insert id="insertUrl" parameterType="com.yuuur.spring.test.ajax.domain.Url">
+		INSERT INTO
+			`url_list`
+			(
+				`name`
+				, `url`
+			)
+		VALUE
+			(
+				#{name}
+				, #{url}
+			)
+	
+	</insert>
+	
+	<select id="selectCountUrl" parameterType="String"
+	resultType="int">
+		SELECT
+			count(1)
+		FROM
+			`url_list`
+		WHERE 
+			`url` = #{url}
+	
+	</select>
+
+</mapper>
