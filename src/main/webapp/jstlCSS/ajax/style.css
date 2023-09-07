@@ -1,0 +1,16 @@
+@charset "UTF-8";
+
+#wrap {
+    width:1200px; 
+    margin:auto
+}
+
+.nav > .nav-item > .nav-link {
+    background-color:peru; 
+    color:white; 
+    font-size:17px;
+    font-weight: bold;
+}
+.nav > .nav-item > a:hover {
+    background-color:rgb(238, 156, 75);
+}

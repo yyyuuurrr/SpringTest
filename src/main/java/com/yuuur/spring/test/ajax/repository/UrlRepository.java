@@ -20,4 +20,6 @@ public interface UrlRepository {
 	
 	public int selectCountUrl(@Param("url")String url);
 	
+	
+	public int deleteUrl(@Param("id")int id);
 }

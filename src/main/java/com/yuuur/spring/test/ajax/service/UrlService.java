@@ -48,6 +48,13 @@ public class UrlService {
 	}
 	
 	
+	public int deleteUrl(int id) {
+		
+		int count = urlRepository.deleteUrl(id);
+				
+		return count;
+	}
+	
 	
 
 }

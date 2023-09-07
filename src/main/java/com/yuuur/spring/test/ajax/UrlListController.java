@@ -63,8 +63,8 @@ public class UrlListController {
 		return "/ajax/url/input";
 	}
 	
-	
-	@GetMapping("/duplicate-url")
+	// 중복url
+	@PostMapping("/duplicate-url")
 	@ResponseBody
 	public Map<String, Boolean> isDuplicateUrl(@RequestParam("url") String url) {
 		
@@ -86,6 +86,24 @@ public class UrlListController {
 		
 	}
 	
+	
+	@GetMapping("/delete")
+	@ResponseBody
+	public Map<String, String> deleteUrl(@RequestParam("id")int id) {
+		
+		int count = urlService.deleteUrl(id);
+		
+		Map<String, String> resultMap = new HashMap<>();
+		
+		if(count == 1) { // 성공
+			resultMap.put("result", "success");
+			
+		}else { //실패
+			resultMap.put("result", "fail");
+		}
+		
+		return resultMap;
+	}
 	
 	
 	

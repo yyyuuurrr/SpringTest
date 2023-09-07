@@ -42,5 +42,13 @@
 			`url` = #{url}
 	
 	</select>
+	
+	<delete id="deleteUrl" parameterType="int">
+		DELETE FROM
+			`url_list`
+		WHERE
+			`id` = #{id}
+		
+	</delete>
 
 </mapper>
