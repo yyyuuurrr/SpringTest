@@ -25,34 +25,35 @@
                     </ul>
                 </nav>
             </header>
-
+			<form method="post" action="/ajax/booking/insert">
             <section class="banner">
             	<div class="justify-content-center">
  					<div class="input-gorup form-inline">
  						<label class="input-label">이름 </label> 
- 						<input type="text">
+ 						<input type="text" name="name" class="nameInput">
  					</div>
  					<div class="input-gorup form-inline mt-3">
  						<label class="input-label">예약날짜 </label> 
- 						<input type="text">
+ 						<input type="text" name="date" class="dateInput">
  					</div>
  					<div class="input-gorup form-inline mt-3">
  						<label class="input-label">숙박일수 </label> 
- 						<input type="text">
+ 						<input type="text" name="day" class="dayInput">
  					</div>
  					<div class="input-gorup form-inline mt-3">
  						<label class="input-label">숙박인원 </label> 
- 						<input type="text">
+ 						<input type="text" name="headcount" class="headcountInput">
  					</div>
 					<div class="input-gorup form-inline mt-3">
  						<label class="input-label">전화번호 </label> 
- 						<input type="text">
+ 						<input type="text" name="phoneNumber" class="phoneNumberInput">
  					</div>
  					<div class="input-gorup form-inline mt-3">
- 						<button type="button" class="btn-warning">예약하기 </button>
+ 						<button type="submit" class="btn-warning bookingBtn">예약하기 </button>
  					</div>
             	</div>
             </section>
+            </form>
             <footer class="mt-3 ml-4 pt-4">
                 <address class="small text-secondary">
                     제주특별자치도 제주시 애월읍  <br>
@@ -66,10 +67,27 @@
 
 
 
-
 	<script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
 	<script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+	<script>
+	$(document).ready(function() {
+		
+		$("#bookingBtn").on("click", function() {
+			
+			
+			
+			
+			
+			
+			
+		})	
+	
+		
+	});
+	
+	
+	</script>
 
 
 </body>

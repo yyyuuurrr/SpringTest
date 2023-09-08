@@ -53,11 +53,14 @@
             					<c:when test="${booking.state eq '확정' }">
             						<td class="text-success">${booking.state }</td>
             					</c:when>
+            					<c:when test="${booking.state eq '취소' }">
+            						<td class="text-danger">${booking.state }</td>
+            					</c:when>
             					<c:otherwise>
             						<td>${booking.state }</td>
             					</c:otherwise>
             				</c:choose>
-            				<td><button type="button" class="btn-danger">삭제</button></td>
+            				<td><button type="button" class="btn-danger delete-btn" data-booking-id ="${booking.id }">삭제</button></td>
             			</tr>
             			</c:forEach>
             		</table>
@@ -69,7 +72,6 @@
                     사업자등록번호: 111-22-255222 / 농어촌민박사업자지정 / 대표:김통목 <br>
                     Copyright 2025 tongnamu All right reserved
                 </address>
-
             </footer>
 	
 		</div>
@@ -77,12 +79,45 @@
 
 
 
-
-
 	<script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
 	<script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+		<script>
+		$(document).ready(function() {
+					
+			$(".delete-btn").on("click", function() {
+				
+				let id = $(this).data("booking-id");
+				
+				
+				$.ajax({
+					type:"get"
+					, url:"/ajax/booking/delete"
+					, data:{"id":id}
+					, success:function(data){
+							
+						if(data.result == "success"){
+							location.reload();
+						}else {
+							
+							alert("삭제실패")
+						}
+						
+					}
+					, error:function(){
+						
+						alert("에러발생")
+					}
+										
+				})
+				
+				
+			});
+						
+		});	
 	
+	
+	</script>
 
 </body>
 </html>
