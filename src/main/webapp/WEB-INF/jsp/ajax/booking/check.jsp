@@ -42,7 +42,7 @@
                         </div>
                         <div class="member-input mt-3" id="member">
                             <div class="input-gorup form-inline">
-                                <label class="input-label">아이디 : </label>
+                                <label class="input-label">이름 : </label>
                                 <input type="text" class="form-control text-input ml-4" id="id">
                             </div>
                             <div class="input-gorup form-inline mt-3">
@@ -120,14 +120,14 @@
 				, data:{"name":name, "phoneNumber":phoneNumber}
 				, success:function(data){
 					
-					if(data == ""){
+					if(data.result == "fail"){
 						alert("조회정보가 없습니다.");
 					}else{
-						alert("이름 :" + data.name + "/n"
-								+ "날짜 : " + data.date.substring(0, 10) + "/n"
-								+ "일수 : " + data.day + "/n"
-								+ "인원 : " + data.headcount + "/n"
-								+ "상태 : " + data.state + "/n");
+						alert("이름 :" + data.booking.name + "/n"
+								+ "날짜 : " + data.booking.date.substring(0, 10) + "/n"
+								+ "일수 : " + data.booking.day + "/n"
+								+ "인원 : " + data.booking.headcount + "/n"
+								+ "상태 : " + data.booking.state + "/n");
 						
 					}
 		

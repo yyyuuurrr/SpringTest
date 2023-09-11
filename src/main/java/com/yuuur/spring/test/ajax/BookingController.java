@@ -106,11 +106,19 @@ public class BookingController {
 		// {"name":"김인규", "date":2023-09-04, "day":2 .....}
 	
 		// 응답 json에 조회된 데이터가 있는지 없는지 정보를 명확하게 정의 한다
+		// 조회 성공시 {"result":"success", "booking":{"name":"김인규", "date":2023-09-04, "day":2 .....}}
+		// 조회 실패시 {"result":"fail"}
 		
+		Map<String, Object> resultMap = new HashMap<>();
 		
+		if(booking != null) {
+			resultMap.put("result", "success");
+			resultMap.put("booking", booking);
+		}else {
+			resultMap.put("result", "fail");
+		}
 		
-		
-		
+	
 		return booking;
 	}
 }
