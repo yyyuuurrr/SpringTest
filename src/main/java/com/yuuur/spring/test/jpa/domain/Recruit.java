@@ -20,26 +20,32 @@ import lombok.NoArgsConstructor;
 @Builder(toBuilder = true)
 @NoArgsConstructor
 @AllArgsConstructor
-@Table(name="company")
+@Table(name="recruit")
 @Entity
-public class Company {
+public class Recruit {
 	
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private int id;
-	private String name;
-	private String business;
-	private String scale;
 	
-	@Column(name="headcount")
-	private int headcount;
+	@Column(name="companyId")
+	private int companyId;
+	private String position;
+	private String responsibilities;
+	private String qualification;
+	private String type;
+	private String region;
+	private int salary;
 	
 	@UpdateTimestamp
-	@Column(name="createdAt", updatable = false)
+	private Date deadline;
+	
+	@UpdateTimestamp    // 현재시간 디폴트값
+    @Column(name="createdAt", updatable=false)
 	private Date createdAt;
 	
 	@UpdateTimestamp
-	@Column(name="updatedAt")
-	private Date updatedat;
+	private Date updatedAt;
+	
 
 }
