@@ -19,14 +19,26 @@ public interface RecruitRepository extends JpaRepository<Recruit, Integer> {
 	public List<Recruit> findByCompanyId(@Param("companyId")int id);
 	
 	// 3번
-	public List<Recruit> findByPositionContainingAndTypeContaining(String position, String type);
+	public List<Recruit> findByPositionAndType(String position, String type);
 	
 	// 4번
-	public List<Recruit> findByTypeOrSalaryGreaterThan(int salary);
+	public List<Recruit> findByTypeOrSalaryGreaterThanEqual(String type, int salary);	
+	
+	// 5번	
+	public List<Recruit> findTop3ByTypeOrderBySalaryDesc(String type);
+	
+	// 6번
+//	public List<Recruit> findByRegionANDsalaryBetween(String region, int salaryStart, int salaryEnd);
+	
+	// 7번
+	@Query(value="SELECT * FROM `recruit` "
+			+ "WHERE `deadline` > :deadline "
+			+ "AND `salary` >= :salary "
+			+ "AND `type` = :type "
+			+ "ORDER BY `salary` DESC ", nativeQuery=true)
+	public List<Recruit> findByNativeQuery(@Param("deadline")String deadline
+											, @Param("salary")int salary
+											, @Param("type")String type);
 	
 	
-//	@Query(value="SELECT * FROM `recruit` WHERE `type`:type AND `salary`<=:salary")
-//	public List<Recruit> findByTypeOrSalaryQuery(@Param("type") String type
-//												, @Param("salary")int salary);
-
 }
